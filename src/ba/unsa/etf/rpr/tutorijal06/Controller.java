@@ -1,116 +1,113 @@
 package ba.unsa.etf.rpr.tutorijal06;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
-import java.awt.event.ActionEvent;
 
 public class Controller  {
     Double prvi=0d;
     int operacija=-1;
 
     @FXML
-    private Button nula;
+    private Button btn0;
     @FXML
-    private Button jedan;
+    private Button btn1;
     @FXML
-    private Button dva;
+    private Button btn2;
     @FXML
-    private Button tri;
+    private Button btn3;
     @FXML
-    private Button cetiri;
+    private Button btn4;
     @FXML
-    private Button pet;
+    private Button btn5;
     @FXML
-    private Button sest;
+    private Button btn6;
     @FXML
-    private Button sedam;
+    private Button btn7;
     @FXML
-    private Button osam;
+    private Button btn8;
     @FXML
-    private Button devet;
+    private Button btn9;
     @FXML
-    private Button tacka;
+    private Button dotBtn;
     @FXML
-    private Button jednako;
+    private Button equalsBtn;
     @FXML
-    private Button plus;
+    private Button plusBtn;
     @FXML
-    private Button minus;
+    private Button minusBtn;
     @FXML
-    private Button mnozi;
+    private Button mulBtn;
     @FXML
-    private Button dijeli;
+    private Button divBtn;
     @FXML
-    private Button modiraj;
+    private Button modBtn;
     @FXML
-    private TextField ekran;
+    private TextField display;
 
 
     public void pritisnutoDugme(javafx.event.ActionEvent e) {
-        if(e.getSource()==jedan) ekran.setText(ekran.getText()+"1");
-        else if(e.getSource()==dva) ekran.setText(ekran.getText()+"2");
-        else if(e.getSource()==tri) ekran.setText(ekran.getText()+"3");
-        else if(e.getSource()==cetiri) ekran.setText(ekran.getText()+"4");
-        else if(e.getSource()==pet) ekran.setText(ekran.getText()+"5");
-        else if(e.getSource()==sest) ekran.setText(ekran.getText()+"6");
-        else if(e.getSource()==sedam) ekran.setText(ekran.getText()+"7");
-        else if(e.getSource()==osam) ekran.setText(ekran.getText()+"8");
-        else if(e.getSource()==devet) ekran.setText(ekran.getText()+"9");
-        else if(e.getSource()==nula) ekran.setText(ekran.getText()+"0");
-        else if(e.getSource()==tacka) ekran.setText(ekran.getText()+".");
-        else if(e.getSource()==plus){
-            prvi=Double.parseDouble(ekran.getText());
+        if(e.getSource()==btn1) display.setText(display.getText()+"1");
+        else if(e.getSource()==btn2) display.setText(display.getText()+"2");
+        else if(e.getSource()== btn3) display.setText(display.getText()+"3");
+        else if(e.getSource()== btn4) display.setText(display.getText()+"4");
+        else if(e.getSource()== btn5) display.setText(display.getText()+"5");
+        else if(e.getSource()== btn6) display.setText(display.getText()+"6");
+        else if(e.getSource()== btn7) display.setText(display.getText()+"7");
+        else if(e.getSource()== btn8) display.setText(display.getText()+"8");
+        else if(e.getSource()== btn9) display.setText(display.getText()+"9");
+        else if(e.getSource()==btn0) display.setText(display.getText()+"0");
+        else if(e.getSource()== dotBtn) display.setText(display.getText()+".");
+        else if(e.getSource()== plusBtn){
+            prvi=Double.parseDouble(display.getText());
             operacija=1;
-            ekran.setText("");
+            display.setText("");
         }
-        else if(e.getSource()==minus){
-            prvi=Double.parseDouble(ekran.getText());
+        else if(e.getSource()== minusBtn){
+            prvi=Double.parseDouble(display.getText());
             operacija=2;
-            ekran.setText("");
+            display.setText("");
         }
-        else if(e.getSource()==mnozi){
-            prvi=Double.parseDouble(ekran.getText());
+        else if(e.getSource()== mulBtn){
+            prvi=Double.parseDouble(display.getText());
             operacija=3;
-            ekran.setText("");
+            display.setText("");
         }
-        else if(e.getSource()==dijeli){
-            prvi=Double.parseDouble(ekran.getText());
+        else if(e.getSource()== divBtn){
+            prvi=Double.parseDouble(display.getText());
             operacija=4;
-            ekran.setText("");
+            display.setText("");
         }
-        else if(e.getSource()==modiraj){
-            prvi=Double.parseDouble(ekran.getText());
+        else if(e.getSource()== modBtn){
+            prvi=Double.parseDouble(display.getText());
             operacija=5;
-            ekran.setText("");
+            display.setText("");
         }
-        else if(e.getSource()==jednako){
-            Double drugi=Double.parseDouble(ekran.getText());
+        else if(e.getSource()== equalsBtn){
+            Double drugi=Double.parseDouble(display.getText());
             switch (operacija){
                 case 1:
                     Double rezultat=prvi+drugi;
-                    ekran.setText(String.valueOf(rezultat));
+                    display.setText(String.valueOf(rezultat));
                     break;
                 case 2:
                     rezultat=prvi-drugi;
-                    ekran.setText(String.valueOf(rezultat));
+                    display.setText(String.valueOf(rezultat));
                     break;
                 case 3:
                     rezultat=prvi*drugi;
-                    ekran.setText(String.valueOf(rezultat));
+                    display.setText(String.valueOf(rezultat));
                     break;
                 case 4:
-                    if(drugi==0) ekran.setText("Greska");
+                    if(drugi==0) display.setText("Greska");
                     else{
                         rezultat=prvi/drugi;
-                        ekran.setText(String.valueOf(rezultat));
+                        display.setText(String.valueOf(rezultat));
                     }
                     break;
                 case 5:
                     rezultat=prvi%drugi;
-                    ekran.setText(String.valueOf(rezultat));
+                    display.setText(String.valueOf(rezultat));
                     break;
             }
         }
